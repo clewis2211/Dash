@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Each signed-in user can read & write ONLY their own data subtree.
+    // Your concerns/projects/legislative live under /users/<your-uid>/...
+    // No other account — and no unauthenticated request — can read them.
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ---- Optional maximum lockdown (single-user only) ----
+    // After your first sign-in, find your UID in Firebase console →
+    // Authentication → Users. Then REPLACE the rule above with this so the
+    // app only works for your one account and nobody else can even create data:
+    //
+    // match /users/{userId}/{document=**} {
+    //   allow read, write: if request.auth != null
+    //     && request.auth.uid == userId
+    //     && request.auth.uid == "PASTE_YOUR_UID_HERE";
+    // }
+  }
+}
