@@ -12,6 +12,7 @@
 <body>
   <div id="app"><div class="boot">Loading…</div></div>
   <input id="importFile" type="file" accept="application/json,.json" hidden />
-  <script src="app.js"></script>
+  <!-- app.js is an ES module so it can import the Firebase SDK from the CDN -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>
