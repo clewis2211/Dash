@@ -12,12 +12,12 @@ import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_ME",
-  authDomain: "PASTE_ME",
-  projectId: "PASTE_ME",
-  storageBucket: "PASTE_ME",
-  messagingSenderId: "PASTE_ME",
-  appId: "PASTE_ME",
+  apiKey: "AIzaSyBWm37j1xCWFTDkbSUZ1mYzBDebXr5NoWM",
+  authDomain: "district2-command.firebaseapp.com",
+  projectId: "district2-command",
+  storageBucket: "district2-command.firebasestorage.app",
+  messagingSenderId: "363207480779",
+  appId: "1:363207480779:web:5662999284d5f18815d24e"
 };
 
 export const configured = !!firebaseConfig.apiKey && firebaseConfig.apiKey !== "PASTE_ME";
@@ -26,3 +26,4 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
+
